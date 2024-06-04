@@ -250,3 +250,89 @@ const findSecSmallest = (numbers) => {
 const num = [3,2,3,4];
 const res = findSecSmallest(num);
 //console.log(res);
+
+
+
+
+
+
+
+
+
+
+
+
+// Check the number of vowels and consonants
+const getNumberOfCharTypes = (givenString) => {
+
+    // count number container object
+    let counts = {vowels: 0, consonants: 0};
+    
+    // change the string into lower case and replace unwanted characters
+    const lowerString = givenString.toLowerCase();
+    const optimizedString = lowerString.replace( /[^a-z]/g, '' );
+    // define vowels
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+    // check characters
+    for (const character of optimizedString) {
+        if(vowels.includes(character)) {
+            counts.vowels += 1;
+        } else {
+            counts.consonants += 1;
+        }
+    }
+    return counts;
+
+}
+
+// get the result
+console.log(getNumberOfCharTypes('The name of our country is Bangladesh'));
+
+
+
+// check if a string is palindrome or not
+const checkPalindrome = (givenString) => {
+    // change the string into lower case and get characters without non-alphabatic
+    const lowerString = givenString.toLowerCase();
+    const optimizedString = lowerString.replace( /[^a-z]/g, '' );
+
+    // get reversed string
+    const reverseString = optimizedString.split('').reverse().join('');
+    const isPalindrome = optimizedString === reverseString;
+    
+    // console if the string is palindrome or not
+    if (isPalindrome) {
+        console.log('The string is Palindrome');
+    } else {
+        console.log('The string is not Palindrome');
+    }
+}
+checkPalindrome('apple');
+
+
+
+
+
+
+// callback function
+// Callback function is a function that is passed as argument of another function.
+
+
+// divide() function is used to divide the given number by 2
+const divide = (number) => {
+    const result = number/2;
+    console.log(result);
+}
+
+
+// getSum() function adds 2 numbers
+// getSum() function recieves 3 parameters. first 2 are number and 3rd one is a function
+const getSum = (number1, number2, divide) => {
+    const sum = number1 + number2;
+    console.log(sum);
+    divide(sum)
+}
+// is this case 3rd parameter or divide() is a callback function that is passed in getSum() function.
+
+getSum(2, 4, divide);
